@@ -1,0 +1,10 @@
+all:
+  vars:
+    gcloud: true
+    k9s: true
+    node: true
+    openjdk: true
+    slack: true
+  hosts:
+    localhost:
+      ansible_connection: local

@@ -1,0 +1,2 @@
+version: 4.18.0
+url: https://downloads.slack-edge.com/releases/linux/{{ version }}/prod/x64/slack-desktop-{{ version }}-amd64.deb
