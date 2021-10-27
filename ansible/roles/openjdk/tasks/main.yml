@@ -31,11 +31,10 @@
   register: java_home
 
 - name: Ajout du script de switch de versions
-  become: yes
-  become_user: root
   template:
     src: setjava.sh.j2
-    dest: /etc/profile.d/setjava.sh
-    owner: root
-    group: root
-    mode: '0644'
+    dest: ~/.bashrc.d/setjava.sh
+
+- name: Switch sur la version par défaut
+  script:
+    cmd: "~/.bashrc.d/setjava.sh {{ default_version }}"

@@ -1,0 +1,33 @@
+
+- name: Lecture des variables
+  include_vars:
+    file: vars.yml
+
+- name: Téléchargement des archives
+  get_url:
+    url: "https://dlcdn.apache.org/maven/maven-3/{{ version }}/binaries/apache-maven-{{ version }}-bin.tar.gz"
+    dest: /tmp/maven-{{ version }}.tar.gz
+    checksum: "{{ checksum }}"
+
+- name: Création du répertoire d'installation
+  file:
+    path: "{{ install_dir }}"
+    state: directory
+
+- name: Décompression des archives
+  unarchive:
+    remote_src: yes
+    src: /tmp/maven-{{ version }}.tar.gz
+    dest: "{{ install_dir }}"
+
+- name: Récupération du nom du dossier décompressé
+  find:
+    paths: "{{ install_dir }}"
+    file_type: directory
+    patterns: 'apache-maven-{{ version }}'
+  register: maven_home
+
+- name: Ajout du script d'ajout au path
+  template:
+    src: currentmaven.sh.j2
+    dest: ~/.bashrc.d/currentmaven.sh

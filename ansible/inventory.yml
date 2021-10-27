@@ -4,6 +4,7 @@ all:
     k9s: true
     node: true
     openjdk: true
+    maven: true
     slack: true
   hosts:
     localhost:

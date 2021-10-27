@@ -9,14 +9,15 @@ setjava() {
         case "$1" in
         {% for item in versions %}
                 "{{ item.version }}")
-                        export JAVA_HOME=$JDK{{ item.version }}
+                        echo "export JAVA_HOME=$JDK{{ item.version }}" > ~/.bashrc.d/currentjava.sh
                         ;;
         {% endfor %}
                 *)
                         echo "Unknown JDK version!"
                         ;;
         esac
-        export PATH=$JAVA_HOME/bin:$PATH
+        echo 'export PATH=$JAVA_HOME/bin:$PATH' >> ~/.bashrc.d/currentjava.sh
+        source ~/.bashrc.d/currentjava.sh
 
         echo "Calling 'java' to output the currently used java version"
         java -version
