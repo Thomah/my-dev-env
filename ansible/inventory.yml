@@ -5,6 +5,7 @@ all:
     node: true
     openjdk: true
     maven: true
+    idea: true
     slack: true
   hosts:
     localhost:
