@@ -1,0 +1,21 @@
+
+- name: Lecture des variables
+  include_vars:
+    file: vars.yml
+
+- name: Téléchargement des archives
+  get_url:
+    url: "https://dbeaver.io/files/{{ version }}/dbeaver-ce-{{ version }}-linux.gtk.x86_64.tar.gz"
+    dest: /tmp/dbeaver-{{ version }}.tar.gz
+    checksum: "{{ checksum }}"
+
+- name: Création du répertoire d'installation
+  file:
+    path: "{{ install_dir }}"
+    state: directory
+
+- name: Décompression des archives
+  unarchive:
+    remote_src: yes
+    src: /tmp/dbeaver-{{ version }}.tar.gz
+    dest: "{{ install_dir }}"

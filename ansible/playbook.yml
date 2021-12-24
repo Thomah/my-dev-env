@@ -34,3 +34,10 @@
       when: idea
     - role: slack
       when: slack
+    - role: postgresql
+      when: postgresql
+      become: true
+      vars:
+        postgresql_version: 12
+    - role: dbeaver
+      when: dbeaver

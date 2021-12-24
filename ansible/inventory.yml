@@ -7,6 +7,8 @@ all:
     maven: true
     idea: true
     slack: true
+    postgresql: true
+    dbeaver: true
   hosts:
     localhost:
       ansible_connection: local
