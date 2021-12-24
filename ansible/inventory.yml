@@ -9,6 +9,7 @@ all:
     slack: true
     postgresql: true
     dbeaver: true
+    postman: true
   hosts:
     localhost:
       ansible_connection: local
