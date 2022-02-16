@@ -2,14 +2,15 @@ all:
   vars:
     gcloud: true
     k9s: true
-    node: true
-    openjdk: true
-    maven: true
-    idea: true
-    slack: true
-    postgresql: true
-    dbeaver: true
-    postman: true
+    kind: true
+    node: false
+    openjdk: false
+    maven: false
+    idea: false
+    slack: false
+    postgresql: false
+    dbeaver: false
+    postman: false
   hosts:
     localhost:
       ansible_connection: local

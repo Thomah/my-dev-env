@@ -24,6 +24,8 @@
       when: gcloud
     - role: k9s
       when: k9s
+    - role: kind
+      when: kind
     - role: node
       when: node
     - role: openjdk
