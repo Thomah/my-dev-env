@@ -10,7 +10,7 @@
 
 - name: Téléchargement du script d'installation
   get_url:
-    url: https://kind.sigs.k8s.io/dl/v0.11.1/kind-linux-amd64
+    url: https://kind.sigs.k8s.io/dl/v{{ version }}/kind-linux-amd64
     dest: "{{ install_dir }}/kind"
     mode: '0755'
 
@@ -19,3 +19,10 @@
     path: ~/.profile
     line: export PATH="{{ install_dir }}:$PATH"
     create: yes
+
+- name: Copie du fichier de configuration Kind
+  become: yes
+  become_user: root
+  copy:
+    src: files/kind.yml
+    dest: /opt/kind.yml
