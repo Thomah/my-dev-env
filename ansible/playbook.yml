@@ -45,3 +45,5 @@
       when: dbeaver
     - role: postman
       when: postman
+    - role: terraform
+      when: terraform
