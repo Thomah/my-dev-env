@@ -12,6 +12,7 @@ all:
     dbeaver: false
     postman: false
     terraform: true
+    flux: true
   hosts:
     localhost:
       ansible_connection: local

@@ -47,3 +47,5 @@
       when: postman
     - role: terraform
       when: terraform
+    - role: flux
+      when: flux
