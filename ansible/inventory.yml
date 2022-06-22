@@ -4,6 +4,7 @@ all:
     k9s: true
     kubectx: true
     kubens: true
+    kustomize: true
     kind: true
     node: false
     openjdk: false
@@ -15,6 +16,7 @@ all:
     postman: false
     terraform: true
     flux: true
+    docker: true
   hosts:
     localhost:
       ansible_connection: local

@@ -20,6 +20,9 @@
 
 - hosts: all
   roles:
+    - role: docker
+      when: docker
+      become: true
     - role: gcloud
       when: gcloud
     - role: k9s
@@ -28,6 +31,8 @@
       when: kubectx
     - role: kubens
       when: kubens
+    - role: kustomize
+      when: kustomize
     - role: kind
       when: kind
     - role: node
