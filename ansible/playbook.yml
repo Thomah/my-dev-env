@@ -24,6 +24,10 @@
       when: gcloud
     - role: k9s
       when: k9s
+    - role: kubectx
+      when: kubectx
+    - role: kubens
+      when: kubens
     - role: kind
       when: kind
     - role: node

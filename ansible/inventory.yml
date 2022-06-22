@@ -2,6 +2,8 @@ all:
   vars:
     gcloud: true
     k9s: true
+    kubectx: true
+    kubens: true
     kind: true
     node: false
     openjdk: false

@@ -1,0 +1,44 @@
+
+- name: Lecture des variables
+  include_vars:
+    file: vars.yml
+
+- name: Téléchargement des archives
+  get_url:
+    url: "https://downloads.arduino.cc/arduino-{{ version }}-linux64.tar.xz"
+    dest: /tmp/arduino-{{ version }}.tar.xz
+    checksum: "{{ checksum }}"
+
+- name: Création du répertoire d'installation
+  file:
+    path: "{{ install_dir }}"
+    state: directory
+
+- name: Décompression des archives
+  unarchive:
+    remote_src: yes
+    src: /tmp/arduino-{{ version }}.tar.xz
+    dest: "{{ install_dir }}"
+
+- name: Execution du script d'installation
+  shell: "{{ install_dir }}arduino-{{ version }}/install.sh"
+  become: true
+
+- name: Récupération du nom du dossier décompressé
+  find:
+    paths: "{{ install_dir }}"
+    file_type: directory
+    patterns: 'arduino-{{ version }}'
+  register: arduino_home
+
+- name: Création du script de sudo
+  template:
+    src: arduino.sh.j2
+    dest: "{{ install_dir }}arduino.sh"
+    mode: '0755'
+
+- name: Modification du racourci Desktop
+  template:
+    src: arduino.desktop.j2
+    dest: ~/.local/share/applications/arduino-arduinoide.desktop
+    mode: '0600'
