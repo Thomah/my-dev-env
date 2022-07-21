@@ -17,6 +17,7 @@ all:
     terraform: true
     flux: true
     docker: true
+    ngrok: true
   hosts:
     localhost:
       ansible_connection: local

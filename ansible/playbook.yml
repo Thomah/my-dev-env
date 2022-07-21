@@ -43,6 +43,8 @@
       when: maven
     - role: idea
       when: idea
+    - role: ngrok
+      when: ngrok
     - role: slack
       when: slack
     - role: postgresql

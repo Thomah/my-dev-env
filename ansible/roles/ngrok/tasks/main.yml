@@ -1,0 +1,25 @@
+
+- name: Lecture des variables
+  include_vars:
+    file: vars.yml
+
+- name: Téléchargement du script d'installation
+  get_url:
+    url: https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
+    dest: /tmp/ngrok.tar.gz
+
+- name: Création du répertoire d'installation
+  file:
+    path: "{{ install_dir }}"
+    state: directory
+
+- name: Décompression des archives
+  unarchive:
+    src: /tmp/ngrok.tar.gz
+    dest: "{{ install_dir }}"
+
+- name: Ajout de l'éxécutable au path
+  lineinfile:
+    path: ~/.profile
+    line: export PATH="{{ install_dir }}:$PATH"
+    create: yes
