@@ -5,7 +5,7 @@
 
 - name: Téléchargement du script d'installation
   get_url:
-    url: https://github.com/derailed/k9s/releases/download/v0.25.18/k9s_Linux_x86_64.tar.gz
+    url: https://github.com/derailed/k9s/releases/download/v0.26.0/k9s_Linux_x86_64.tar.gz
     dest: /tmp/k9s.tar.gz
 
 - name: Création du répertoire d'installation

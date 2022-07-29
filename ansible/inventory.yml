@@ -11,8 +11,8 @@ all:
     maven: false
     idea: false
     slack: false
-    postgresql: false
-    dbeaver: false
+    postgresql: true
+    dbeaver: true
     postman: false
     terraform: true
     flux: true
