@@ -25,6 +25,8 @@
       become: true
     - role: gcloud
       when: gcloud
+    - role: helm
+      when: helm
     - role: k9s
       when: k9s
     - role: kubectx

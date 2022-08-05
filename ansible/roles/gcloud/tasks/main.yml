@@ -5,8 +5,8 @@
 
 - name: Téléchargement du script d'installation
   get_url:
-    url: https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-365.0.1-linux-x86_64.tar.gz
-    checksum: sha256:17003cdba67a868c2518ac16efa60dc6175533b7a9fb87304459784308e30fb0
+    url: https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-{{ version }}-linux-x86_64.tar.gz
+    checksum: "{{ checksum }}"
     dest: /tmp/gcloud.tar.gz
 
 - name: Création du répertoire d'installation

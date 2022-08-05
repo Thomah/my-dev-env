@@ -5,17 +5,24 @@
 
 - name: Téléchargement du script d'installation
   get_url:
-    url: https://github.com/derailed/k9s/releases/download/v{{ version }}/k9s_Linux_x86_64.tar.gz
-    dest: /tmp/k9s.tar.gz
+    url: https://get.helm.sh/helm-v{{ version }}-linux-amd64.tar.gz
+    dest: /tmp/helm.tar.gz
+    checksum: "{{ checksum }}"
 
-- name: Création du répertoire d'installation
+- name: Création du répertoire de décompression
   file:
-    path: "{{ install_dir }}"
+    path: "/tmp/helm"
     state: directory
 
 - name: Décompression des archives
   unarchive:
-    src: /tmp/k9s.tar.gz
+    src: /tmp/helm.tar.gz
+    dest: "/tmp/helm"
+
+- name: Déplacement des fichiers depuis linux-amd64
+  copy: 
+    remote_src: True
+    src: /tmp/helm/linux-amd64/
     dest: "{{ install_dir }}"
 
 - name: Ajout de l'éxécutable au path

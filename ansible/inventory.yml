@@ -1,6 +1,7 @@
 all:
   vars:
     gcloud: true
+    helm: true
     k9s: true
     kubectx: true
     kubens: true
