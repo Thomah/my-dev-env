@@ -20,6 +20,8 @@
 
 - hosts: all
   roles:
+    - role: cmctl
+      when: cmctl
     - role: docker
       when: docker
       become: true

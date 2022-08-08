@@ -1,5 +1,6 @@
 all:
   vars:
+    cmctl: true
     gcloud: true
     helm: true
     k9s: true
