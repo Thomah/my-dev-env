@@ -1,25 +1,25 @@
 all:
   vars:
     cmctl: true
+    dbeaver: false
+    docker: false
+    flux: true
     gcloud: true
     helm: true
+    idea: false
     k9s: true
+    kind: true
     kubectx: true
     kubens: true
     kustomize: true
-    kind: true
+    maven: false
+    ngrok: true
     node: false
     openjdk: false
-    maven: false
-    idea: false
-    slack: false
-    postgresql: true
-    dbeaver: true
+    postgresql: false
     postman: false
+    slack: false
     terraform: true
-    flux: true
-    docker: true
-    ngrok: true
   hosts:
     localhost:
       ansible_connection: local
