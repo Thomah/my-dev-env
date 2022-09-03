@@ -1,4 +1,4 @@
 
-version: "1.1.7"
-checksum: "sha256:e4add092a54ff6febd3325d1e0c109c9e590dc6c38f8bb7f9632e4e6bcca99d4"
+version: "1.2.8"
+checksum: "sha256:3e9c46d6f37338e90d5018c156d89961b0ffb0f355249679593aff99f9abe2a2"
 install_dir: ~/Tools/terraform/

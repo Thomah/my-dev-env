@@ -7,6 +7,7 @@ all:
     gcloud: true
     helm: true
     idea: false
+    jq: true
     k9s: true
     kind: true
     kubectx: true

@@ -13,11 +13,9 @@
           do
             source "$filename"
           done < <(find -L ~/.bashrc.d -type f)
-          
         marker: '# {mark} ANSIBLE MANAGED BLOCK - ~.bashrc.d'
         insertbefore: BOF
         create: yes
-
 - hosts: all
   roles:
     - role: cmctl
@@ -29,24 +27,26 @@
       when: gcloud
     - role: helm
       when: helm
+    - role: idea
+      when: idea
+    - role: jq
+      when: jq
     - role: k9s
       when: k9s
+    - role: kind
+      when: kind
     - role: kubectx
       when: kubectx
     - role: kubens
       when: kubens
     - role: kustomize
       when: kustomize
-    - role: kind
-      when: kind
     - role: node
       when: node
     - role: openjdk
       when: openjdk
     - role: maven
       when: maven
-    - role: idea
-      when: idea
     - role: ngrok
       when: ngrok
     - role: slack

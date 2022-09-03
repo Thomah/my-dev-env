@@ -1,0 +1,21 @@
+
+- name: Lecture des variables
+  include_vars:
+    file: vars.yml
+
+- name: Création du répertoire d'installation
+  file:
+    path: "{{ install_dir }}"
+    state: directory
+
+- name: Téléchargement du script d'installation
+  get_url:
+    url: https://github.com/stedolan/jq/releases/download/jq-{{ version }}/jq-linux64
+    dest: "{{ install_dir }}/jq"
+    mode: '0755'
+
+- name: Ajout de l'éxécutable au path
+  lineinfile:
+    path: ~/.profile
+    line: export PATH="{{ install_dir }}:$PATH"
+    create: yes
