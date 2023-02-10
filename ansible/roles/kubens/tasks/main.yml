@@ -1,8 +1,4 @@
 
-- name: Lecture des variables
-  include_vars:
-    file: vars.yml
-
 - name: Téléchargement du script d'installation
   get_url:
     url: https://github.com/ahmetb/kubectx/releases/download/v0.9.4/kubens_v0.9.4_linux_x86_64.tar.gz

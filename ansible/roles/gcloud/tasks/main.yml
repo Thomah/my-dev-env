@@ -1,8 +1,4 @@
 
-- name: Lecture des variables
-  include_vars:
-    file: vars.yml
-
 - name: Téléchargement du script d'installation
   get_url:
     url: https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-{{ version }}-linux-x86_64.tar.gz

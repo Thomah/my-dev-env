@@ -1,8 +1,4 @@
 
-- name: Lecture des variables
-  include_vars:
-    file: vars.yml
-
 - name: Téléchargement des archives
   get_url:
     url: "https://downloads.arduino.cc/arduino-{{ version }}-linux64.tar.xz"

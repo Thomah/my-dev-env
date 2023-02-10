@@ -1,11 +1,7 @@
 
-- name: Lecture des variables
-  include_vars:
-    file: vars.yml
-
 - name: Téléchargement du script d'installation
   get_url:
-    url: https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv4.5.4/kustomize_v4.5.4_linux_amd64.tar.gz
+    url: https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv{{ version }}/kustomize_v{{ version }}_linux_amd64.tar.gz
     dest: /tmp/kustomize.tar.gz
 
 - name: Création du répertoire d'installation

@@ -1,8 +1,4 @@
 
-- name: Lecture des variables
-  include_vars:
-    file: vars.yml
-
 - name: Téléchargement du script d'installation
   get_url:
     url: https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz

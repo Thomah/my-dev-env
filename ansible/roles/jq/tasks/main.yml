@@ -1,8 +1,4 @@
 
-- name: Lecture des variables
-  include_vars:
-    file: vars.yml
-
 - name: Création du répertoire d'installation
   file:
     path: "{{ install_dir }}"

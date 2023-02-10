@@ -1,0 +1,3 @@
+version: "3.9.0"
+checksum: "sha512:1ea149f4e48bc7b34d554aef86f948eca7df4e7874e30caf449f3708e4f8487c71a5e5c072a05f17c60406176ebeeaf56b5f895090c7346f8238e2da06cf6ecd"
+install_dir: ~/Tools/maven/

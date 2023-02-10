@@ -1,8 +1,4 @@
 
-- name: Lecture des variables
-  include_vars:
-    file: vars.yml
-
 - name: Téléchargement des archives
   get_url:
     url: "https://dbeaver.io/files/{{ version }}/dbeaver-ce-{{ version }}-linux.gtk.x86_64.tar.gz"
