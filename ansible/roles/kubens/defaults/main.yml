@@ -1,2 +1,2 @@
-
-install_dir: ~/Tools/kubens
+version: 0.9.4
+install_dir: ~/tools/kubens

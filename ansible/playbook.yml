@@ -1,34 +1,9 @@
-
-- hosts: all
-  tasks:
-    - name: Création du répertoire ~/.bashrc.d
-      file:
-        path: "~/.bashrc.d"
-        state: directory
-    - name: Sourcing des fichiers dans ~/.bashrc.d
-      blockinfile:
-        dest: "~/.bashrc"
-        block: |
-          while read filename
-          do
-            source "$filename"
-          done < <(find -L ~/.bashrc.d -type f)
-        marker: '# {mark} ANSIBLE MANAGED BLOCK - ~.bashrc.d'
-        insertbefore: BOF
-        create: yes
 - hosts: all
   roles:
-    - role: cmctl
-      when: cmctl
-    - role: docker
-      when: docker
-      become: true
     - role: gcloud
       when: gcloud
     - role: helm
       when: helm
-    - role: idea
-      when: idea
     - role: jq
       when: jq
     - role: k9s
@@ -43,8 +18,6 @@
       when: kustomize
     - role: node
       when: node
-    - role: openjdk
-      when: openjdk
     - role: maven
       when: maven
     - role: ngrok

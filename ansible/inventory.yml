@@ -1,6 +1,5 @@
 all:
   vars:
-    cmctl: true
     dbeaver: false
     docker: false
     flux: true
@@ -16,7 +15,6 @@ all:
     maven: false
     ngrok: true
     node: false
-    openjdk: false
     postgresql: false
     postman: false
     slack: false

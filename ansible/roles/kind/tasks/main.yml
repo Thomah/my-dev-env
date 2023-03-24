@@ -8,6 +8,7 @@
   get_url:
     url: https://kind.sigs.k8s.io/dl/v{{ version }}/kind-linux-amd64
     dest: "{{ install_dir }}/kind"
+    checksum: "{{ checksum }}"
     mode: '0755'
 
 - name: Ajout de l'éxécutable au path

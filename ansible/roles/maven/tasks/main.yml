@@ -23,7 +23,11 @@
     patterns: 'apache-maven-{{ version }}'
   register: maven_home
 
-- name: Ajout du script d'ajout au path
-  template:
-    src: currentmaven.sh.j2
-    dest: ~/.bashrc.d/currentmaven.sh
+- name: Ajout de l'éxécutable au path
+  blockinfile:
+    dest: ~/.profile
+    block: |
+      export MAVEN_HOME={{ maven_home.files[0].path }}
+      export PATH=$MAVEN_HOME/bin:$PATH
+    insertbefore: BOF
+    create: yes

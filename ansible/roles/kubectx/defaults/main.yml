@@ -1,1 +1,2 @@
-install_dir: ~/Tools/kubectx
+version: 0.9.4
+install_dir: ~/tools/kubectx
