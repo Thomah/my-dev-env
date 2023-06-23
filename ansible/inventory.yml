@@ -14,7 +14,7 @@ all:
     kustomize: true
     maven: false
     ngrok: true
-    node: false
+    node: true
     postgresql: false
     postman: false
     slack: false
