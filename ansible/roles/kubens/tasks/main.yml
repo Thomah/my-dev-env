@@ -3,6 +3,7 @@
   get_url:
     url: https://github.com/ahmetb/kubectx/releases/download/v{{ version }}/kubens_v{{ version }}_linux_x86_64.tar.gz
     dest: /tmp/kubens.tar.gz
+    checksum: "{{ checksum }}"
 
 - name: Création du répertoire d'installation
   file:

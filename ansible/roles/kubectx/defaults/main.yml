@@ -1,2 +1,3 @@
-version: 0.9.4
+version: 0.9.5
+checksum: "sha256:a2247ffd23e79f89abdd0e8173379d7172511f02a3f63c9936d3824e0dd60648"
 install_dir: ~/tools/kubectx

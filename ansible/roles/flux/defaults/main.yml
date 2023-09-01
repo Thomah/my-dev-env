@@ -1,3 +1,3 @@
-version: 0.41.2
-checksum: "sha256:13f5ab2a93812c26c6b921274c40451d1b29a259da4e9c4d38b112cc4dad562a"
+version: 2.1.0
+checksum: "sha256:fe6d32da40d5f876434e964c46bc07d00af138c560e063fdcfa8f73e37224087"
 install_dir: ~/tools/flux/
