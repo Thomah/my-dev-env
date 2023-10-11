@@ -1,0 +1,12 @@
+versions:
+  - version: 21
+    url: https://download.java.net/java/GA/jdk21/fd2272bbf8e04c3dbaee13770090416c/35/GPL/openjdk-21_linux-x64_bin.tar.gz
+    checksum: sha256:a30c454a9bef8f46d5f1bf3122830014a8fbe7ac03b5f8729bc3add4b92a1d0a
+  - version: 17
+    url: https://download.java.net/java/GA/jdk17.0.1/2a2082e5a09d4267845be086888add4f/12/GPL/openjdk-17.0.1_linux-x64_bin.tar.gz
+    checksum: sha256:1c0a73cbb863aad579b967316bf17673b8f98a9bb938602a140ba2e5c38f880a
+  - version: 11
+    url: https://download.java.net/openjdk/jdk11/ri/openjdk-11+28_linux-x64_bin.tar.gz
+    checksum: sha256:3784cfc4670f0d4c5482604c7c513beb1a92b005f569df9bf100e8bef6610f2e
+
+install_dir: ~/tools/openjdk/

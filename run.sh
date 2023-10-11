@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Variables globales
-export ANSIBLE_VERSION="8.3.0"
+export ANSIBLE_VERSION="8.5.0"
 
 # Synchronisation des dépôts APT 
 sudo apt -y update
@@ -21,9 +21,6 @@ pip3 install ansible===$ANSIBLE_VERSION
 
 # Application du nouveau fichier profile
 source ~/.profile
-
-# Installation des roles distants
-ansible-galaxy install -r ansible/requirements.yml --force
 
 # Lancement du playbook
 ansible-playbook ansible/playbook.yml -i ansible/inventory.yml --limit localhost

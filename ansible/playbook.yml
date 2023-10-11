@@ -1,5 +1,7 @@
 - hosts: all
   roles:
+    - role: flux
+      when: flux
     - role: gcloud
       when: gcloud
     - role: helm
@@ -16,24 +18,13 @@
       when: kubens
     - role: kustomize
       when: kustomize
-    - role: node
-      when: node
     - role: maven
       when: maven
     - role: ngrok
       when: ngrok
-    - role: slack
-      when: slack
-    - role: postgresql
-      when: postgresql
-      become: true
-      vars:
-        postgresql_version: 12
-    - role: dbeaver
-      when: dbeaver
-    - role: postman
-      when: postman
+    - role: node
+      when: node
+    - role: openjdk
+      when: openjdk
     - role: terraform
       when: terraform
-    - role: flux
-      when: flux

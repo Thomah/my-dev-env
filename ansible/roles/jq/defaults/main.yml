@@ -1,4 +1,4 @@
-version: 1.6
-checksum: sha256:af986793a515d500ab2d35f8d2aecd656e764504b789b66d7e1a0b727a124c44
+version: 1.7
+checksum: sha256:2f312b9587b1c1eddf3a53f9a0b7d276b9b7b94576c85bda22808ca950569716
 install_dir: ~/tools/jq
  

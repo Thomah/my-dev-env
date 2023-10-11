@@ -1,9 +1,10 @@
 
 - name: Téléchargement des archives
   get_url:
-    url: "https://dlcdn.apache.org/maven/maven-3/{{ version }}/binaries/apache-maven-{{ version }}-bin.tar.gz"
-    dest: /tmp/maven-{{ version }}.tar.gz
-    checksum: "{{ checksum }}"
+    url: "{{ item.url }}"
+    dest: /tmp/openjdk-{{ item.version }}.tar.gz
+    checksum: "{{ item.checksum }}"
+  loop: "{{ versions }}"
 
 - name: Création du répertoire d'installation
   file:
@@ -13,21 +14,23 @@
 - name: Décompression des archives
   unarchive:
     remote_src: yes
-    src: /tmp/maven-{{ version }}.tar.gz
+    src: /tmp/openjdk-{{ item.version }}.tar.gz
     dest: "{{ install_dir }}"
+  loop: "{{ versions }}"
 
 - name: Récupération du nom du dossier décompressé
   find:
     paths: "{{ install_dir }}"
     file_type: directory
-    patterns: 'apache-maven-{{ version }}'
-  register: maven_home
+    patterns: 'jdk-{{ item.version }}*'
+  loop: "{{ versions }}"
+  register: java_home
 
 - name: Ajout de l'éxécutable au path
   blockinfile:
     dest: ~/.profile
     block: |
-      export MAVEN_HOME={{ maven_home.files[0].path }}
-      export PATH=$MAVEN_HOME/bin:$PATH
-    marker: "# {mark} MAVEN BLOCK"
+      export JAVA_HOME={{ java_home.results[0].files[0].path }}
+      export PATH=$JAVA_HOME/bin:$PATH
+    marker: "# {mark} JAVA BLOCK"
     create: yes

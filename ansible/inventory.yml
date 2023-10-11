@@ -1,23 +1,18 @@
 all:
   vars:
-    dbeaver: false
-    docker: false
     flux: true
     gcloud: true
     helm: true
-    idea: false
     jq: true
     k9s: true
     kind: true
     kubectx: true
     kubens: true
     kustomize: true
-    maven: false
+    maven: true
     ngrok: true
     node: true
-    postgresql: false
-    postman: false
-    slack: false
+    openjdk: true
     terraform: true
   hosts:
     localhost:
