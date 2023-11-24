@@ -1,3 +1,3 @@
-version: "3.13.0"
-checksum: "sha256:138676351483e61d12dfade70da6c03d471bbdcac84eaadeb5e1d06fa114a24f"
+version: "3.13.2"
+checksum: "sha256:55a8e6dce87a1e52c61e0ce7a89bf85b38725ba3e8deb51d4a08ade8a2c70b2d"
 install_dir: ~/tools/helm

@@ -1,2 +1,3 @@
-version: 0.27.4
+version: 0.28.2
+checksum: "sha256:3dc8238a554ad2051b91931f9da154188e222a9a1accc4410d7a87a654aab34e"
 install_dir: ~/tools/k9s
