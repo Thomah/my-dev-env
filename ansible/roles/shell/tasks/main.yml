@@ -1,0 +1,19 @@
+- name: Création du répertoire d'installation
+  file:
+    path: "{{ install_dir }}"
+    state: directory
+
+- name: Générer le fichier ssh-key
+  template:
+    src: ssh-key.j2
+    dest: "{{ install_dir }}/ssh-key"
+    mode: '0755'
+
+- name: Démarrer l'agent SSH au lancement du shell
+  blockinfile:
+    dest: ~/.profile
+    block: |
+      eval $(ssh-agent -s)
+      export PATH="{{ install_dir }}:$PATH"
+    marker: "# {mark} SHELL BLOCK"
+    create: yes

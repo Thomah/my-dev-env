@@ -13,6 +13,7 @@ all:
     ngrok: true
     node: true
     openjdk: true
+    shell: true
     terraform: true
   hosts:
     localhost:
