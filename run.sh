@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Variables globales
-export ANSIBLE_VERSION="9.1.0"
+export ANSIBLE_VERSION="9.4.0"
 
 # Synchronisation des dépôts APT 
 sudo apt -y update
@@ -21,6 +21,9 @@ pip3 install ansible===$ANSIBLE_VERSION
 
 # Application du nouveau fichier profile
 source ~/.profile
+
+# Application des variables d'environnement
+source env.sh
 
 # Lancement du playbook
 ansible-playbook ansible/playbook.yml -i ansible/inventory.yml --limit localhost

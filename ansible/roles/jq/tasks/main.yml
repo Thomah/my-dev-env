@@ -6,7 +6,7 @@
 
 - name: Téléchargement du script d'installation
   get_url:
-    url: https://github.com/stedolan/jq/releases/download/jq-{{ version }}/jq-linux64
+    url: https://github.com/jqlang/jq/releases/download/jq-{{ version }}/jq-linux-amd64
     dest: "{{ install_dir }}/jq"
     mode: '0755'
 

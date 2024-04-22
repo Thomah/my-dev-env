@@ -1,1 +1,2 @@
 install_dir: ~/tools/shell
+key_location: ~/.ssh/id_rsa

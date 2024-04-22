@@ -1,3 +1,3 @@
-version: 0.20.0
-checksum: sha256:513a7213d6d3332dd9ef27c24dab35e5ef10a04fa27274fe1c14d8a246493ded
+version: 0.22.0
+checksum: sha256:e4264d7ee07ca642fe52818d7c0ed188b193c214889dd055c929dbcb968d1f62
 install_dir: ~/tools/kind
