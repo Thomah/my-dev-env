@@ -1,0 +1,56 @@
+---
+- name: Install required packages
+  apt:
+    name:
+      - autoconf
+      - patch
+      - build-essential
+      - rustc
+      - libreadline-dev
+      - libssl-dev
+      - libyaml-dev
+      - libreadline6-dev
+      - zlib1g-dev
+      - libcurl4-openssl-dev
+      - libgmp-dev
+      - libncurses5-dev
+      - libffi-dev
+      - libgdbm6
+      - libgdbm-dev
+      - libdb-dev
+      - uuid-dev
+    state: present
+  become: yes 
+
+- name: Create the installation directory
+  file:
+    path: '{{ install_dir }}'
+    state: directory
+
+- name: Clone rbenv into {{ install_dir }}
+  git:
+    repo: 'https://github.com/rbenv/rbenv.git'
+    dest: '{{ install_dir }}'
+    version: '{{ version_rbenv }}'
+    update: yes
+
+- name: Add variables in shell configuration
+  blockinfile:
+    dest: ~/.profile
+    block: |
+      export RBENV_ROOT={{ install_dir }}
+      export PATH="{{ install_dir }}/bin:$PATH"
+      eval "$({{ install_dir }}/bin/rbenv init -)"
+    marker: "# {mark} RUBY BLOCK"
+    create: yes
+
+- name: Install ruby-build plugin
+  git:
+    repo: 'https://github.com/rbenv/ruby-build.git'
+    dest: '{{ install_dir }}/plugins/ruby-build'
+    update: yes
+
+- name: Install ruby version
+  shell: "RBENV_ROOT={{ install_dir }} && {{ install_dir }}/bin/rbenv install --skip-existing {{ version_ruby }} && rbenv global {{ version_ruby }}"
+  args:
+    executable: /bin/bash

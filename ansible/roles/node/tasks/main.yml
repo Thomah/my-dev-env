@@ -1,4 +1,4 @@
-
+---
 - name: Téléchargement du script d'installation
   get_url:
     url: https://raw.githubusercontent.com/nvm-sh/nvm/v{{ version }}/install.sh
@@ -12,6 +12,14 @@
   lineinfile:
     path: ~/.profile
     line: source ~/.nvm/nvm.sh
+    create: yes
+
+- name: Add variables in shell configuration
+  blockinfile:
+    dest: ~/.profile
+    block: |
+      source ~/.nvm/nvm.sh
+    marker: "# {mark} NODE BLOCK"
     create: yes
 
 - name: Installation de Node LTS

@@ -1,3 +1,4 @@
+---
 version: 0.9.5
 checksum: "sha256:acc1a9c7f6b722fbe5fad25dd0e784a7335d18436b9c414ab996629e82702cba"
 install_dir: ~/tools/kubens

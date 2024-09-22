@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Variables globales
-export ANSIBLE_VERSION="9.4.0"
+export ANSIBLE_VERSION="10.4.0"
 
 # Synchronisation des dépôts APT 
 sudo apt -y update

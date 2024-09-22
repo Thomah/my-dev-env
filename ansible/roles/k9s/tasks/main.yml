@@ -1,3 +1,4 @@
+---
 - name: Téléchargement du script d'installation
   get_url:
     url: https://github.com/derailed/k9s/releases/download/v{{ version }}/k9s_Linux_amd64.tar.gz

@@ -1,3 +1,4 @@
+---
 - name: Téléchargement du script d'installation
   get_url:
     url: https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv{{ version }}/kustomize_v{{ version }}_linux_amd64.tar.gz

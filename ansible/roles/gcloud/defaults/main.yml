@@ -1,3 +1,4 @@
-version: 472.0.0
-checksum: sha256:f80fea5087bc82b2c4d3aefee8112c25163f44dc47773529eb5e46b0001c8b8f
-install_dir: ~/tools
+---
+install_dir: "~/tools/gcloud"
+gcloud_cli_url: "https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-linux-x86_64.tar.gz"
+checksum: "sha256:8432574712b8ecd09bd729b421c5118fc3f7f707ca91a8328eafb7273b6052bb"

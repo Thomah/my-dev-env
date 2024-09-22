@@ -1,3 +1,4 @@
-version: 0.32.4 
-checksum: "sha256:d62611d9be2c35b782a765e98421500196acbf8be844cd3d9e32d4fa7846da05"
+---
+version: 0.32.5
+checksum: "sha256:33c31bf5feba292b59b8dabe5547cb52ab565521ee5619b52eb4bd4bf226cea3"
 install_dir: ~/tools/k9s

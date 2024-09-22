@@ -1,4 +1,4 @@
-
+---
 - name: Téléchargement du script d'installation
   get_url:
     url: https://github.com/ahmetb/kubectx/releases/download/v{{ version }}/kubens_v{{ version }}_linux_x86_64.tar.gz

@@ -1,3 +1,4 @@
+---
 - name: Création du répertoire d'installation
   file:
     path: "{{ install_dir }}"

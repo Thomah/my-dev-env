@@ -26,6 +26,8 @@
       when: node
     - role: openjdk
       when: openjdk
+    - role: ruby
+      when: ruby
     - role: shell
       when: shell
     - role: terraform

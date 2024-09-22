@@ -1,31 +1,39 @@
+---
+- name: Ensure required packages are installed
+  become: yes
+  apt:
+    name: 
+      - curl
+      - tar
+    state: present
 
-- name: Téléchargement du script d'installation
-  get_url:
-    url: https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-{{ version }}-linux-x86_64.tar.gz
-    checksum: "{{ checksum }}"
-    dest: /tmp/gcloud.tar.gz
-
-- name: Création du répertoire d'installation
+- name: Create installation directory
   file:
     path: "{{ install_dir }}"
     state: directory
+    mode: '0755'
 
-- name: Décompression des archives
+- name: Download Google Cloud CLI with checksum verification
+  get_url:
+    url: "{{ gcloud_cli_url }}"
+    dest: "/tmp/google-cloud-cli-linux-x86_64.tar.gz"
+    checksum: "{{ checksum }}"
+
+- name: Extract Google Cloud CLI
   unarchive:
-    src: /tmp/gcloud.tar.gz
+    src: "/tmp/google-cloud-cli-linux-x86_64.tar.gz"
     dest: "{{ install_dir }}"
+    remote_src: yes
 
-- name: Exécution du script d'installation
-  shell: "{{ install_dir }}/google-cloud-sdk/install.sh --quiet"
+- name: Run the installation script
+  command: "./install.sh --quiet"
+  args:
+    chdir: "{{ install_dir }}/google-cloud-sdk"
 
-- name: Ajout de l'autocompletion
-  lineinfile:
-    path: ~/.profile
-    line: source {{ install_dir }}/google-cloud-sdk/completion.bash.inc
-    create: yes
-
-- name: Ajout des commandes dans le path
-  lineinfile:
-    path: ~/.profile
-    line: source {{ install_dir }}/google-cloud-sdk/path.bash.inc
+- name: Add variables in shell configuration
+  blockinfile:
+    dest: ~/.profile
+    block: |
+      export PATH="$PATH:{{ install_dir }}/google-cloud-sdk/bin"
+    marker: "# {mark} GCLOUD BLOCK"
     create: yes

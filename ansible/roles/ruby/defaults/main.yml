@@ -1,0 +1,4 @@
+---
+install_dir: '~/tools/rbenv'
+version_rbenv: "v1.2.0"
+version_ruby: "3.3.5"
