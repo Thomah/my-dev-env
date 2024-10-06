@@ -1,0 +1,59 @@
+---
+- name: Vérifier si rustup est déjà installé
+  stat:
+    path: "{{ install_dir }}/bin/rustup"
+  register: rustup_installed
+
+- name: Créer le répertoire d'installation si nécessaire
+  file:
+    path: "{{ item }}"
+    state: directory
+    mode: '0755'
+  loop:
+    - "{{ install_dir }}/cargo"
+    - "{{ install_dir }}/rustup"
+  when: not rustup_installed.stat.exists
+
+- name: Installer les dépendances requises (curl et gcc)
+  apt:
+    name:
+      - curl
+      - gcc
+    state: present
+  become: yes
+
+- name: Télécharger le script d'installation de rustup
+  get_url:
+    url: https://sh.rustup.rs
+    dest: /tmp/rustup-init.sh
+    mode: '0755'
+  when: not rustup_installed.stat.exists
+
+- name: Exécuter le script d'installation de rustup
+  shell: sh /tmp/rustup-init.sh -y --no-modify-path --default-toolchain {{ rust_toolchain }}
+  environment:
+    RUSTUP_INIT_SKIP_PATH_CHECK: "yes"
+    CARGO_HOME: "{{ install_dir }}/cargo"
+    RUSTUP_HOME: "{{ install_dir }}/rustup"
+  args:
+    creates: "{{ install_dir }}/rustup/bin/rustup"
+  when: not rustup_installed.stat.exists
+
+- name: Add variables in shell configuration
+  blockinfile:
+    dest: ~/.profile
+    block: |
+      export CARGO_HOME="{{ install_dir }}/cargo"
+      export RUSTUP_HOME="{{ install_dir }}/rustup"
+      export PATH="{{ install_dir }}/bin:$PATH"
+    marker: "# {mark} RUST BLOCK"
+    create: yes
+
+- name: Vérifier que Rust est installé
+  command: "{{ install_dir }}/cargo/bin/rustc --version"
+  register: rustc_version
+  changed_when: false
+
+- name: Afficher la version de Rust installée
+  debug:
+    msg: "Rust version installée : {{ rustc_version.stdout }}"

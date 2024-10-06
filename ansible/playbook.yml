@@ -28,6 +28,8 @@
       when: openjdk
     - role: ruby
       when: ruby
+    - role: rust
+      when: rust
     - role: shell
       when: shell
     - role: terraform

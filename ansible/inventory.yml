@@ -14,6 +14,7 @@ all:
     node: true
     openjdk: true
     ruby: true
+    rust: true
     shell: true
     terraform: true
   hosts:
