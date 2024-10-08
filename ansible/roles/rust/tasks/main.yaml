@@ -45,7 +45,7 @@
     block: |
       export CARGO_HOME="{{ install_dir }}/cargo"
       export RUSTUP_HOME="{{ install_dir }}/rustup"
-      export PATH="{{ install_dir }}/bin:$PATH"
+      export PATH="{{ install_dir }}/cargo/bin:$PATH"
     marker: "# {mark} RUST BLOCK"
     create: yes
 
